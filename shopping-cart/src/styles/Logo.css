@@ -1,0 +1,6 @@
+.brand >a{
+  color:var(--white-color);
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
