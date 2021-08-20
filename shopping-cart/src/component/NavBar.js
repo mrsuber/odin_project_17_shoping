@@ -1,18 +1,23 @@
 import '../styles/NavBar.css'
 import Logo from "./navComponet/Logo"
 import Search from "./navComponet/SearchBar"
-import Order from "./navComponet/Order"
+import Card from "./navComponet/Card"
 import Basket from "./navComponet/Basket"
+import Signin from "./navComponet/Signin"
 
 function NavBar(){
   return(
-    <div className="nav__container">
-      this is the nave bare with its componet
+    <header className="header">
+
       <Logo/>
       <Search/>
-      <Order/>
       <Basket/>
-    </div>
+      <div className="header__links">
+          <Card/>
+          <Signin/>
+      </div>
+
+    </header>
   )
 }
 
