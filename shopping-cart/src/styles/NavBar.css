@@ -1,0 +1,19 @@
+.header{
+  background-color:var(--header-color);
+  color:white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+
+.header__links>a{
+  color:var(--white-color);
+  text-decoration: none;
+}
+
+
+.header__links>a:hover{
+  color:var(--orange-color);
+}
