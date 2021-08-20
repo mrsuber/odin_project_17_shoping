@@ -1,18 +1,29 @@
 import '../styles/MainSection.css'
+import Product from './Product'
 
 
 function MainSection(){
   return(
     <main className="main">
-
-    <ul>
-      <li>Product 1</li>
-      <li>Product 2</li>
-      <li>Product 3</li>
-      <li>Product 4</li>
-      <li>Product 5</li>
-
-    </ul>
+    <div className="content">
+        <ul className="products">
+          <li>
+            <Product />
+          </li>
+          <li>
+            <Product />
+          </li>
+          <li>
+            <Product />
+          </li>
+          <li>
+            <Product />
+          </li>
+          <li>
+            <Product />
+          </li>
+        </ul>
+    </div>
 
     </main>
   )
