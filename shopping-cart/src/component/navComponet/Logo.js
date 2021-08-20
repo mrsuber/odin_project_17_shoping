@@ -2,8 +2,8 @@ import '../../styles/Logo.css'
 
 function Logo(){
   return(
-    <div>
-      this is the logo component
+    <div className="brand">
+      <a href="index.html">amazona</a>
     </div>
   )
 }
