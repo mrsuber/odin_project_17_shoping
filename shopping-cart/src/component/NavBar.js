@@ -6,13 +6,13 @@ import Basket from "./navComponet/Basket"
 
 function NavBar(){
   return(
-    <div className="nav__container">
-      this is the nave bare with its componet
-      <Logo/>
+    <header className="header">
+      amazona
+      {/*<Logo/>
       <Search/>
       <Order/>
-      <Basket/>
-    </div>
+      <Basket/>*/}
+    </header>
   )
 }
 
