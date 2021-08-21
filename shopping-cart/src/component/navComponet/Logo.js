@@ -1,4 +1,5 @@
 import '../../styles/Logo.css'
+import {Link} from 'react-router-dom'
 
 function Logo(){
   function openMenu(){
@@ -9,7 +10,7 @@ function Logo(){
     <button onClick={openMenu}>
     &#9776;
     </button>
-      <a href="index.html">amazona</a>
+      <Link to='/'>amazona</Link>
     </div>
   )
 }
