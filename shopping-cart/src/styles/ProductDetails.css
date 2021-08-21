@@ -1,0 +1,15 @@
+.details{
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  flex-wrap: wrap;
+}
+.details__image{
+  flex: 2 1 60rem;
+}
+.details__info{
+  flex: 2 1 60rem;
+}
+.details__action{
+  flex: 2 1 60rem;
+}
