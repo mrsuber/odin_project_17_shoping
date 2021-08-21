@@ -8,9 +8,7 @@ import Signin from "./navComponet/Signin"
 function NavBar(){
   return(
     <header className="header">
-    <button>
-    &#9776;
-    </button>
+    
       <Logo/>
       <Search/>
       <Basket/>

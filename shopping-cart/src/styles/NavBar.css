@@ -17,8 +17,3 @@
 .header__links>a:hover{
   color:var(--orange-color);
 }
-
-.header >button{
-  margin-bottom:1rem;
-
-}
