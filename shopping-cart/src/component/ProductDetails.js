@@ -7,7 +7,9 @@ function ProductDetails(props){
 
   return(
     <div >
+
     <div className="back__to__result">
+
       <Link to="/">Back to result</Link>
     </div>
     <div className="details">
@@ -20,7 +22,9 @@ function ProductDetails(props){
         <li>
           {product.rating} Stars ({product.numReviews} Rewiews)
         </li>
+
         <li>Price: <b>${product.price}</b></li>
+
         <li>
         Description:
         <div>{product.description}</div>
@@ -28,6 +32,7 @@ function ProductDetails(props){
       </ul>
 
     </div>
+
     <div className="details__action">
         <ul>
             <li>Price: {product.price}</li>
@@ -46,6 +51,7 @@ function ProductDetails(props){
 
         </ul>
     </div>
+
 
     </div>
 

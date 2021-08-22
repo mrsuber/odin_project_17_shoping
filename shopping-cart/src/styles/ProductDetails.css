@@ -3,11 +3,14 @@
   justify-content: space-between;
   align-items:flex-start;
   flex-wrap: wrap;
+
   padding: 1rem;
+
 }
 .details__image{
   flex: 2 1 60rem;
 }
+
 .details__image>img{
   width: 60rem;
   widows: 100%;
@@ -50,4 +53,5 @@
 }
 .button, .primary{
   background-color: var(--button-orange-color);
+
 }
