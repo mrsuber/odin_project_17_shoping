@@ -2,17 +2,21 @@
 import {Link} from 'react-router-dom'
 import '../styles/ProductDetails.css'
 import {useSelector, useDispatch} from 'react-redux'
-import {useEffect} from 'react'
-import detailsProduct from '../actions/productActions'
-function ProductDetails(props){
+import {useEffect,useState} from 'react'
+import {detailsProduct} from '../actions/productActions'
 
-  // const product = data.products.find(product=>product.id===Number(props.match.params.id))
+
+function ProductDetails(props){
+const [qty,setQty]=useState(1)
 const productDetails= useSelector(state=>state.productDetails)
-const[product,loading,error]=productDetails;
-const dispatch = useDispatch
+const{product,loading,error}=productDetails;
+const dispatch = useDispatch()
 useEffect(()=>{
-  dispatch(detailsProduct())
-},[])
+  dispatch(detailsProduct(props.match.params.id))
+},[]);
+const handleAddToCart = ()=>{
+    props.history.push("/cart/"+props.match.params.id+"?qtu"+qty)
+}
   return(
 
     <div >
@@ -48,17 +52,21 @@ useEffect(()=>{
         <div className="details__action">
             <ul>
                 <li>Price: {product.price}</li>
-                <li>Status: {product.price}</li>
-                <li>Qty: <select>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <li>Status: {product.countInStock >0?"In Stock":"Out of stock"}</li>
+                <li>Qty: <select value={qty} onChange={(e)=>{setQty(e.target.value)}}>
+                  {[...Array(product.countInStock).keys()].map(x=>
+                    <option key={x+1} value={x+1}>{x+1}</option>
+                  )}
                 </select>
 
                 </li>
-                <li><button className="button">Add To Card</button></li>
+                <li>
+                {product.countInStock>0&&<button onClick={handleAddToCart} className="button">Add To Card</button>
+
+
+              }
+
+                </li>
 
 
             </ul>
