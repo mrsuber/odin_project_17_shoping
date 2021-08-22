@@ -1,14 +1,30 @@
 import '../styles/MainSection.css'
 import Product from './Product'
-import data from './database/products'
+// import data from './database/products'
+import {useState,useEffect} from 'react'
+// import axios from 'axios';
+import {useSelector,useDispatch} from 'react-redux'
+import {listProducts} from '../actions/productActions'
 
 function MainSection(){
+  
+  const productList = useSelector(state=>state.productList)
+  const {products,loading, error} = productList;
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(listProducts())
+    return () =>{
+
+    }
+  },[])
   return(
+    loading?<div>loading...</div>:
+    error?<div>{error}</div>:
     <main className="main">
     <div className="content">
         <ul className="products">
           {
-            data.products.map(product=>
+          products.map(product=>
               <li>
 
                 <Product
