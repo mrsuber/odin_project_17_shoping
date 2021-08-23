@@ -23,6 +23,10 @@ function CartScreen(props){
     }
   },[])
 
+  const checkoutHandler=()=>{
+    props.history.push('/signin?redirect=shipping')
+  }
+
   return(
     <div className="cart">
       <div className="cart__list">
@@ -57,10 +61,11 @@ function CartScreen(props){
 
                       <div>
                         Qty:
-                          <select value={item.qty} onChange={(e)=>addToCart(item.product, e.target.value)}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                          <select value={item.qty} onChange={(e)=>dispatch(addToCart(item.product,e.target.value))}>
+                            {[...Array(item.countInStock).keys()].map(x=>
+                            <option key={x+1} value={x+1}>{x+1}</option>
+
+                          )}
                           </select>
                           <button className="button" type="button" onClick={()=>removeFromCartHandler(item.product)}>
                             Delete
@@ -82,7 +87,7 @@ function CartScreen(props){
             :
             $ {cartItems.reduce((a,c)=> a+c.price*c.qty,0)}
         </h3>
-        <button className="button primary" disabled={cartItems.length===0}>Proceed to Checkout</button>
+        <button onClick={checkoutHandler} className="button primary full_width" disabled={cartItems.length===0}>Proceed to Checkout</button>
       </div>
 
     </div>

@@ -55,3 +55,10 @@
 .cart__name{
   flex:8 1;
 }
+
+.button{
+  font-size: 1.6rem;
+}
+.full_width{
+  width: 100%;
+}

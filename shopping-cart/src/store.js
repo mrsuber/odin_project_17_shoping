@@ -2,8 +2,10 @@ import {createStore,combineReducers,applyMiddleware,compose} from 'redux'
 import {productListReducer,productDetailsReducer} from './reducers/productReducers'
 import {cartReducer} from './reducers/cartReducers'
 import thunk from 'redux-thunk'
+import Cookie from 'js-cookie'
+const cartItems = Cookie.getJSON("cartItems") || [];
 
-const initialState={}
+const initialState={cart:{cartItems}}
 const reducer = combineReducers({
   productList:productListReducer,
   productDetails:productDetailsReducer,
