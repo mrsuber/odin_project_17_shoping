@@ -21,7 +21,7 @@ function CartScreen(props){
     if(productId){
       dispatch(addToCart(productId,qty))
     }
-  },[])
+  },[]);
 
   const checkoutHandler=()=>{
     props.history.push('/signin?redirect=shipping')
@@ -45,6 +45,7 @@ function CartScreen(props){
                 Cart is empty
               </div>
               :
+
               cartItems.map(item=>
                 <li>
                 <div className="cart__image">
@@ -87,7 +88,9 @@ function CartScreen(props){
             :
             $ {cartItems.reduce((a,c)=> a+c.price*c.qty,0)}
         </h3>
-        <button onClick={checkoutHandler} className="button primary full_width" disabled={cartItems.length===0}>Proceed to Checkout</button>
+        <button onClick={checkoutHandler} className="button primary full_width" disabled={cartItems.length===0}>
+        Proceed to Checkout
+        </button>
       </div>
 
     </div>
