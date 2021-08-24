@@ -5,9 +5,14 @@ import {useState,useEffect} from 'react'
 // import axios from 'axios';
 import {useSelector,useDispatch} from 'react-redux'
 import {listProducts} from '../actions/productActions'
+import Cookie from 'js-cookie'
+//
+// console.log(Cookie.get("foo"))
+
 
 function MainSection(){
-  
+  console.log(Cookie.get("cartItems"))
+
   const productList = useSelector(state=>state.productList)
   const {products,loading, error} = productList;
   const dispatch = useDispatch();
