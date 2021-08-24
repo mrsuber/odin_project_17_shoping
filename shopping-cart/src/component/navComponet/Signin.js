@@ -1,8 +1,10 @@
 import '../../styles/Signin.css'
+import {Link} from 'react-router-dom'
 
 function Signin(){
   return(
-    <a href="#">SignIn</a>
+    <Link to="/signin">SignIn</Link>
+  
   )
 }
 export default Signin
