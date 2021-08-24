@@ -4,8 +4,8 @@
   "description": "git checkout master",
   "main": "index.js",
   "scripts": {
-    "start":"nodemon --watch shopping-card-backend --exec babel-node shopping-card-backend/server.js"
-    },
+    "start": "nodemon --watch shopping-card-backend --exec babel-node shopping-card-backend/server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrsuber/odin_project_17_shoping.git"
@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/mrsuber/odin_project_17_shoping#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.8"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
