@@ -9,7 +9,7 @@ import ProductDetails from "./component/ProductDetails"
 import {BrowserRouter,Route} from 'react-router-dom'
 import SignInScreen from './component/SignInScreen'
 import RegisterScreen from "./component/RegisterScreen"
-
+import ProductsScreen from "./component/ProductsScreen"
 function App() {
 
   return (
@@ -19,6 +19,7 @@ function App() {
     <SideBar />
     <Route path='/signin' component={SignInScreen} />
     <Route path='/register' component={RegisterScreen} />
+    <Route path='/products' component={ProductsScreen} />
 
     <Route path='/product/:id' component={ProductDetails} />
     <Route path='/' exact={true} component={MainSection} />
