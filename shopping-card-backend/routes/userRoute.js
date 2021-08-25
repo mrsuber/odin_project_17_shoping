@@ -1,6 +1,9 @@
 import express from 'express'
 import User from '../models/userModel'
+
 import {getToken} from '../utill'
+
+
 
 
 const router = express.Router();
@@ -17,6 +20,7 @@ router.post('/signin', async (req,res)=>{
       name:signinUser.name,
       email:signinUser.email,
       isAdmin:signinUser.isAdmin,
+
       token:getToken(signinUser)
 
     })
@@ -56,6 +60,8 @@ router.post('/register', async (req,res)=>{
       email:signinUser.email,
       isAdmin:signinUser.isAdmin,
       token:getToken(signinUser)
+
+
 
     })
   }else{
