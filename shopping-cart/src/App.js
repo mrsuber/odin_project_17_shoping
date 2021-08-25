@@ -8,14 +8,17 @@ import CartScreen from "./component/CartScreen"
 import ProductDetails from "./component/ProductDetails"
 import {BrowserRouter,Route} from 'react-router-dom'
 import SignInScreen from './component/SignInScreen'
+import RegisterScreen from "./component/RegisterScreen"
 
 function App() {
+
   return (
     <BrowserRouter>
     <div className="App grid-container">
     <NavBar/>
     <SideBar />
     <Route path='/signin' component={SignInScreen} />
+    <Route path='/register' component={RegisterScreen} />
 
     <Route path='/product/:id' component={ProductDetails} />
     <Route path='/' exact={true} component={MainSection} />
