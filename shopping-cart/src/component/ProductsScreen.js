@@ -26,7 +26,7 @@ useEffect(()=>{
 },[]);
 const submitHandler = (e) =>{
   e.preventDefault()
-  dispatch(saveProduct(name,price,image,brand,category,countInStock,description));
+  dispatch(saveProduct({name:name,price:price,image:image,brand:brand,category:category,countInStock:countInStock,description:description}));
 }
 
   return(
