@@ -1,11 +1,11 @@
 // import data from './database/products'
-import '../styles/SignInScreen.css'
+import '../styles/ProductsScreen.css'
 import {Link} from 'react-router-dom'
 import '../styles/ProductDetails.css'
 import {useSelector, useDispatch} from 'react-redux'
 import {useEffect,useState} from 'react'
 // import {signin} from "../actions/userAction"
-import {saveProduct,listProducts} from '../actions/productActions'
+import {saveProduct,listProducts,deleteProduct} from '../actions/productActions'
 
 function ProductsScreen(props){
   const [modalVisible, setModalVisible]=useState(false)
@@ -17,17 +17,26 @@ function ProductsScreen(props){
   // const[rating,setRating]=useState('')
   const[category,setCategory]=useState('')
   const[countInStock,setCountInStock]=useState('')
+  const [monitorModal, setMonitorModal]=useState(true)
   // const[numReviews,setNumReviews]=useState('')
   const[description,setDescription]=useState('')
   const productList=useSelector(state=>state.productList)
   const {loading,products,error} = productList
   const productSave=useSelector(state=>state.productSave)
   const {loading:loadingSave, success:successSave, error:errorSave}=productSave;
+
+  const productDelete=useSelector(state=>state.productDelete)
+  const {loading:loadingDelete, success:successDelete, error:errorDelete}=productDelete;
 const dispatch = useDispatch()
 useEffect(()=>{
+  if(monitorModal===false){
+    setModalVisible(false)
+    setMonitorModal(true)
+
+  }
   dispatch(listProducts())
 
-},[]);
+},[monitorModal,successDelete]);
 const openModal = (product)=>{
   setModalVisible(true)
   setId(product._id)
@@ -41,16 +50,20 @@ const openModal = (product)=>{
 
 
 }
+const deleteHandler=(product)=>{
+  dispatch(deleteProduct(product._id))
+}
 const submitHandler = (e) =>{
   e.preventDefault()
   dispatch(saveProduct({id:_id,name:name,price:price,image:image,brand:brand,category:category,countInStock:countInStock,description:description}));
+  setMonitorModal(false)
 }
 
   return(
-    <div className="content content-margined">
-        <div className="product-header">
+    <div className="content content_margined">
+        <div className="product_header">
           <h3>Products</h3>
-          <button onClick={()=>openModal({})}>Create Product</button>
+          <button  className="button primary" onClick={()=>openModal({})}>Create Product</button>
         </div>
         {modalVisible &&
           <div className="signin__form" >
@@ -122,7 +135,7 @@ const submitHandler = (e) =>{
 
 
         <div className="product-list">
-          <table>
+          <table className="table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -136,15 +149,16 @@ const submitHandler = (e) =>{
             <tbody>
 
             {products===undefined?'': products.map(product=>(
-              <tr>
-                  <td>{product.id}</td>
+              <tr key={product.id}>
+                  <td>{product._id}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
                   <td>
-                  <button onClick={()=>openModal(product)}>Edit</button>
-                  <button>Delete</button>
+                  <button className="button" onClick={()=>openModal(product)}>Edit</button>
+                  {' '}
+                  <button className="button" onClick={()=>deleteHandler(product)}>Delete</button>
                   </td>
               </tr>
             )) }
