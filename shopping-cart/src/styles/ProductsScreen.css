@@ -1,0 +1,17 @@
+.product_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.content_margined{
+  margin: 1rem;
+}
+.table{
+  width:100%;
+}
+.table>thead>tr>th{
+  text-align: left;
+}
+.table>tbody>tr:nth-child(odd){
+  background-color: var(--aside-gray);
+}
