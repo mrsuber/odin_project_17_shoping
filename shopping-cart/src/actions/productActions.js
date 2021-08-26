@@ -22,13 +22,24 @@ catch(error){
 const saveProduct = (product)=> async(dispatch,getState)=>{
   try{
 
-    
+
     dispatch({type:PRODUCT_SAVE_REQUEST, payload:product})
     const {userSignin:{userInfo}} = getState()
-    const {data}=await Axios.post('/api/products',product,{header:{
-      'Authorization':'Bearer '+userInfo.token
-    }})
-    dispatch({type:PRODUCT_SAVE_SUCCESS, payload:data})
+    console.log("at action, the product is",product)
+    if(!product.id){
+      const {data}=await Axios.post('/api/products',product,{header:{
+        'Authorization':'Bearer '+userInfo.token
+      }})
+      dispatch({type:PRODUCT_SAVE_SUCCESS, payload:data})
+    }else{
+
+      const {data}=await Axios.put('/api/products/'+ product.id,product,{header:{
+        'Authorization':'Bearer '+userInfo.token
+      }})
+      dispatch({type:PRODUCT_SAVE_SUCCESS, payload:data})
+    }
+
+
   }catch(error){
     dispatch({type:PRODUCT_SAVE_FAIL, payload:error.message})
   }
