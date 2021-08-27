@@ -10,6 +10,9 @@ import {BrowserRouter,Route} from 'react-router-dom'
 import SignInScreen from './component/SignInScreen'
 import RegisterScreen from "./component/RegisterScreen"
 import ProductsScreen from "./component/ProductsScreen"
+import ShippingScreen from "./component/ShippingScreen"
+import PaymentScreen from "./component/PaymentScreen"
+import PlaceOrderScreen from "./component/PlaceOrderScreen"
 function App() {
 
   return (
@@ -20,6 +23,9 @@ function App() {
     <Route path='/signin' component={SignInScreen} />
     <Route path='/register' component={RegisterScreen} />
     <Route path='/products' component={ProductsScreen} />
+    <Route path='/shipping' component={ShippingScreen} />
+    <Route path='/payment' component={PaymentScreen} />
+    <Route path='/placeorder' component={PlaceOrderScreen} />
 
     <Route path='/product/:id' component={ProductDetails} />
     <Route path='/' exact={true} component={MainSection} />

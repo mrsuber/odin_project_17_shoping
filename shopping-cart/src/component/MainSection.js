@@ -34,8 +34,8 @@ function MainSection(){
 
                 <Product
 
-                key={product.id}
-                id={product.id}
+                key={product._id}
+                id={product._id}
                 image={product.image}
                 name={product.name}
                 brand={product.brand}
